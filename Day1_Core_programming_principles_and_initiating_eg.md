@@ -276,7 +276,7 @@ Create an R script that will count how many of these numbers fall between -1 and
 You know that E(X) = 68.2%
 Check that Mean(X_N) -> E(X) as you rerun your script while increasing N
 
-A: See my solutions here /Users/shiminfu/Desktop/R_programming_studies/Sec2HW_Law_of_large_number.R
+A: See my solutions here /Users/shiminfu/Desktop/R_programming_studies/Section2hw_LLN.R
 Note that the resulting average fluctuates a lot; this is ordinary, the solution according to the instructor's hint also behaves likewise.
 It is just the fact that LLN cannot show itself that obviously, though it does hold.
 
