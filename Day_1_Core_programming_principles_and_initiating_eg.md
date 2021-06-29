@@ -1,13 +1,18 @@
+[Other resources (cheat sheets, etc.)](https://education.rstudio.com/learn/beginner/)
+
 ## Section 1: An initiating example of data science via R: Mispriced diamonds
 R is powerful and efficient in analysing data.
 Just view the video and we will come back at the end of this course, to summarise the techniques used in this example.
 
 ## Section 2: Core_programming_principles
 ### 2.0 
-I think I should explain the parts in the application, R Studio, before learning to code there
-source "shell"
-console
-environment
+I think I should explain the parts in the application, R Studio, before learning to code there. Note the following parts of R studio are specified with their default position, and you can move then as you like.
+- Script (or shall we also call it "source"?), on the left upper part in R studio by default, showing a file with R codes that are prepared to run in the console (discussed below). 
+As far as I am concerned, it is like how the module works for Python.
+- Console, on the left lower part, where you have your codes actually run and giving results. I reckon it is like how the shell works for Python.
+- Environment, on the right upper, where you can see the variables and their values you defined before.
+- Plots, Packages, Files, etc., on the right lower, where you can see the plotted diagrams, the packges you load in your computer, the folders and files in your computer, etc.
+
 ### 2.1 Types of variables
 create a R script for the coding in this subsection
 
