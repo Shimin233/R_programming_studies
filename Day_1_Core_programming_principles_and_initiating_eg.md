@@ -197,7 +197,7 @@ for(i in 5:10){
 ```
 
 
-### 2.7 Random sampling and the 'if' loop
+### 2.7 Random sampling and the 'if' statement
 
 ```R
 rnorm(k) #generate k random sample(s) from a normal distribution
@@ -253,7 +253,33 @@ if(x > 1){
 
 ```
 
-## Recap of Section 2 
-homework
+__Compaison of these three loops/statements__
+- if statement: execute the loop body _once_ when the condition is TRUE, and not execute when condition FALSE 
+- while loop: execute the body _(possibly repeatedly)_ as long as the condition is TRUE
+- for loop: execute the body for _EACH_ item in the condition
+We can note that the two "loops" can execute their body iterately i.e. repeatedly, but the if "statement" either executes only once or not at all.
 
-quiz
+## Recap of Section 2
+1 Five types of variables
+2 Using variables: basic operations
+3 Logical variables and operators
+4 While loop
+5 Using the console
+6 For loop
+7  If statement
+8 random sample
+
+## Homework: Law of large number
+(See the related file /Users/shiminfu/Desktop/R_programming_studies/Section2-Homework-The-Challenge.pdf)
+Q: Test the Law Of Large Numbers for N random normally distributed numbers with mean = 0, stdev = 1:
+Create an R script that will count how many of these numbers fall between -1 and 1 and divide by the total quantity of N
+You know that E(X) = 68.2%
+Check that Mean(X_N) -> E(X) as you rerun your script while increasing N
+
+A: See my solutions here /Users/shiminfu/Desktop/R_programming_studies/Sec2HW_Law_of_large_number.R
+Note that the resulting average fluctuates a lot; this is ordinary, the solution according to the instructor's hint also behaves likewise.
+It is just the fact that LLN cannot show itself that obviously, though it does hold.
+
+## Quiz
+If statement: isolates a block of codes and executes it only when a certain condition holds; executes only once, not iterately 
+(but for and while both execute loop body iterately).
