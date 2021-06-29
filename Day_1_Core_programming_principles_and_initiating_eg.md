@@ -57,7 +57,7 @@ typeof(z)
 a<-"h"
 typeof(a) #will get an error if not creating it yet; so run the codes in its desired order, here I mean defining a and then check its type
 
-#logical (TRUE and FALSE)
+#logical, or called boolean (TRUE and FALSE)
 q1<- T
 typeof(q1)
 q2<- FALSE
@@ -103,7 +103,7 @@ and create a new R script for this time
 
 
 ```R
-#Logical
+#Logical variables are:
 #TRUE T
 #FALSE F
 
@@ -111,6 +111,7 @@ and create a new R script for this time
 10>100 #FALSE
 4==5 #FALSE
 
+#Operators which can result in logical variables include: 
 #==
 #!=,  not equal
 #<, >
@@ -171,12 +172,88 @@ x
 
 copied to console and print 5 in the console
 
-can type codes and run it directly in the console, without using the source at all
-
-shell
+can type codes and run it directly in the console, without using the source at all and the codes you typed like this will not be saved in the script part.
 
 ### 2.6 The 'for' loop
+```R
+#compare for loop and while loop side by side
+counter <- 1
+while(counter < 12){
+  print(counter)
+  conuter <- counter + 1
+} 
 
-### 2.7 The 'if' loop
+for(i in 1:5){
+  print("Hello R")
+}
+#1:5 is acutally a vector (1, 2, 3, 4, 5); here it is used to specify the condition to execute the body of for loop
+#see contents of the vector, 1:5, by typing it
+1:5
+
+for(i in 5:10){
+  print("Hello R")
+}
+5:10 #it is the vector (5, 6, 7, 8, 9, 10), with six entries
+```
+
+
+### 2.7 Random sampling and the 'if' loop
+
+```R
+rnorm(k) #generate k random sample(s) from a normal distribution
+rnorm(1) #generate one random sample from a normal distribution
+
+x <- rnorm(1)
+if(x > 1){
+  answer <- "Greater than 1"
+} #if the random sample is no larger than 1, then no vairable called answer is built since the if loop body is not executed
+
+#remove variable 
+rm(answer)
+x <- rnorm(1)
+if(x > 1){
+  answer <- "Greater than 1"
+} #answer is removed before each execution of these codes, so we can see whether the variable called answer exists in the environment to see whether the if loop body is executed
+
+#if-else
+rm(answer)
+x <- rnorm(1)
+if(x > 1){
+  answer <- "Greater than 1"
+} else{
+  answer <- "Less than 1"
+}
+
+#one more case 1: nesting
+rm(answer)
+x <- rnorm(1)
+if(x > 1){
+  answer <- "Greater than 1"
+} else{
+
+  if(x >= -1){
+    answer <- "Between -1 and 1"
+  } else{
+  answer <- "Less than -1"
+  }
+  
+}
+
+#one more case 2: chaining, else if (this is preferrable than the last method)
+rm(answer)
+x <- rnorm(1)
+if(x > 1){
+  answer <- "Greater than 1"
+} else if(x >= -1){
+  answer <- "Between -1 and 1"
+} else{
+  answer <- "Less than -1"
+}   #basically, if...else if...else... makes three parallel cases
+
+
+```
 
 ## Recap of Section 2 
+homework
+
+quiz
