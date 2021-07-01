@@ -160,7 +160,7 @@ The directory where packages are stored is called the __library__.
 Look at the lower right window and click 'packages', the installed packages can be seen, activated and de-activated (checking or de-checking)there.
 Or delete a package from your computer by clicking the cross on the right end
 
-[The biggest webpage for comprehensive R resources](https://cran.r-project.org)
+The biggest webpage for comprehensive R resources is [cran](https://cran.r-project.org)
 
 
 ```R
@@ -186,7 +186,7 @@ qplot(data=diamonds, carat, price, colour=clarity, facets=.~clarity)
 ```
 
 ### Recap of Section 3
-1. What is a vector? Only one type of variables in one vector
+1. What is a vector? Only one type of variables in one vector; otherwise, R automatically turns all numerics to integers by adding '' to them
 2. Created some vectors: c(), seq(), rep()
 3. Check types: is.numeric(), is.character()
 4. Using \[\] brackets, vector\[index vector\]; even one number is a 1-element vector
