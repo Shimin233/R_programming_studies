@@ -1,17 +1,5 @@
 ## Section 3: Fundamentals of R
-```r
-for(i in 1:5){
-    print(i)
-}
-```
 
-```mysql
-select*
-```
-
-```sql
-select*
-```
 Tip: Double quotation marks and single quotations marks can both represent a character in R, like both of them working for strings in Python.
 
 ### 3.1 Vector
