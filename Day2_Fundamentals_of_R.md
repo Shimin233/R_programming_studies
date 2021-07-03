@@ -276,9 +276,11 @@ qplot(data=diamonds, carat, price, colour=clarity, facets=.~clarity)
 7. Functions in R, 'blender'; ?function() to see guide
 8. Packages in R
 
-Homework: Financial statement analysis
+### Homework: Financial statement analysis
+My trial seems to work well; saved in the file Desktop/R_programming_studies/Section3-Homework-Data.R, 
+together with corrections according to the hints.
 
-Quiz
+### Quiz
 Vector arithmetics: entry-by-entry
 Vector has one single type: turning numerics into characters automatically if mixing
 install.package('') to install a package from Internet, and then activate it by library()
