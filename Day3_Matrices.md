@@ -145,18 +145,97 @@ round(FieldGoals / Games, 1)  #entry-by-entry arithmetics
 
 round(MinutesPlayed / Games)
 
-
-
-
-
 ```
 
 ### 4.7 Visualising with Matplot()
 
+```r
+#matplot(x, y, type='pl')
+# where x, y are vectors of matrices of data; or by default 1:n, y
+# type = a character or vector of characters for the type of each column of y, 'pl': points and lines
+# lty = vector of line types; lwd = vector of line widths; lend = vector of line styles 
+# pch = a character or vector of characters for plotting character
+# ...see others in ?matplot()
+
+FieldGoals #we want to plot each row rather than column
+t(FieldGoals) #thus transpose this matrix
+
+matplot(t(FieldGoals))
+
+matplot(t(FieldGoals), type='b', pch=15:18, col=c(1:4, 6))
+legend('bottomleft', inset=0.01, legend=Players, col=c(1:4, 6), pch=15:18, horiz=F) 
+#inset = how far from coner of chart; horiz= F means vertical legend
+#this 'legend' is to add a box at bottom left for explanations (a legend) of symbols and colours
+
+#matplot: as we set here, same colours 'col' and symbols 'pch', which is inconvenient if we want to have colours matched; 
+#more powerful tool for colour and symbol matching later
+
+#particularly for this FieldGoals example, it does not show other information like injury
+
+#another way to analyse
+matplot(t(FieldGoals/Games), type='b', pch=15:18, col=c(1:4, 6))
+legend('bottomleft', inset=0.01, legend=Players, col=c(1:4, 6), pch=15:18, horiz=F) 
+
+#a third way to analyse
+matplot(t(FieldGoals/FieldGoalAttempts), type='b', pch=15:18, col=c(1:4, 6))
+legend('bottomleft', inset=0.01, legend=Players, col=c(1:4, 6), pch=15:18, horiz=F) 
+#can see Dwight Howard has the best accuracy
+
+```
+
 ### 4.8 Subsetting
+
+```r
+x <- c('a', 'b', 'c', 'd', 'e')
+x
+x[c(1, 5)] #'a', 'e'
+x[1] #'a', which is also a (one-element) vector
+# actually we are subsetting the vector x to a vector
+
+#Subset a matrix then USUALLY (but not always) get a matrix
+Games
+Games[1:3,6:10]
+Games[c(1, 10),]
+Games[, c('2008', '2009')] #can also use names to pick dimensions
+
+Games[1,]
+is.matrix(Games[1,])#FALSE
+is.vector(Games[1,])#TRUE, suprising! Actually a named vector
+
+Games[1, 5] 
+is.matrix(Games[1, 5]) #FALSE
+is.vector(Games[1, 5]) #TRUE , again one entry of a matrix is also a (one-element) vector
+
+#R is guessing what we want; here picking one dimension from a matrix -> it guesses we want a vector!
+#to still get a matrix, use the argument 'drop', 
+# which by default drop=TRUE, dropping unnecessary dimensions, as above Games[1,] did
+Games[1,drop=F] #this is instead a named 1*N matrix
+Games[1, 5, drop=F] #this is a named 1*1 matrix
+
+```
+
 
 ### 4.9 Visualising subsets
 
+```r
+Data <- MinutesPlayed[1:3,]
+Data
+matplot(t(Data), type='b', pch=15:18, col=c(1:4, 6))
+legend('bottomleft', inset=0.01, legend=Players[1:3], col=c(1:4, 6), pch=15:18, horiz=F) 
+
+#intuitively but wrong way to pick only one player: 
+Data <- MinutesPlayed[1,] #not a matrix (as required by matplot later, but a vector)
+Data
+matplot(t(Data), type='b', pch=15:18, col=c(1:4, 6))
+legend('bottomleft', inset=0.01, legend=Players[1], col=c(1:4, 6), pch=15:18, horiz=F) 
+#legend uses a vector, so it is ok
+
+#correct way:
+Data <- MinutesPlayed[1,drop=F] # a matrix
+Data
+matplot(t(Data), type='b', pch=15:18, col=c(1:4, 6))
+legend('bottomleft', inset=0.01, legend=Players[1], col=c(1:4, 6), pch=15:18, horiz=F) 
+```
 ### 4.10 Creating your first function
 
 ### 4.11 Basketball insights
