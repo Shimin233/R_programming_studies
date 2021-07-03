@@ -238,7 +238,70 @@ legend('bottomleft', inset=0.01, legend=Players[1], col=c(1:4, 6), pch=15:18, ho
 ```
 ### 4.10 Creating your first function
 
+
+```r
+#Recall from last time (player chosen is changed) the following; 
+Data <- MinutesPlayed[2:3,drop=F] # a matrix
+matplot(t(Data), type='b', pch=15:18, col=c(1:4, 6))
+legend('bottomleft', inset=0.01, legend=Players[2:3], col=c(1:4, 6), pch=15:18, horiz=F) 
+
+#We are going to create a function to output the same result 
+myplot <- function(){
+    Data <- MinutesPlayed[2:3,drop=F] # a matrix
+    matplot(t(Data), type='b', pch=15:18, col=c(1:4, 6))
+    legend('bottomleft', inset=0.01, legend=Players[2:3], col=c(1:4, 6), pch=15:18, horiz=F) 
+}
+
+myplot() 
+
+
+#can set parameters of a function
+myplot <- function(rows){
+    Data <- MinutesPlayed[rows,drop=F] # a matrix
+    matplot(t(Data), type='b', pch=15:18, col=c(1:4, 6))
+    legend('bottomleft', inset=0.01, legend=Players[rows], col=c(1:4, 6), pch=15:18, horiz=F) 
+}
+
+myplot(1:5)  
+#(to be confirmed) due to the variable type requirements of definition of myplot(), 
+# myplot(rows) automatically requires rows being a matrix
+
+#add another parameter
+myplot <- function(data, rows){
+    Data <- data[rows,drop=F] # a matrix
+    matplot(t(Data), type='b', pch=15:18, col=c(1:4, 6))
+    legend('bottomleft', inset=0.01, legend=Players[rows], col=c(1:4, 6), pch=15:18, horiz=F) 
+}
+
+myplot(Salary,  1:5)  
+
+#can set default value for our parameter(s)
+myplot <- function(data, rows=1:10){
+    Data <- data[rows,drop=F] # a matrix
+    matplot(t(Data), type='b', pch=15:18, col=c(1:4, 6))
+    legend('bottomleft', inset=0.01, legend=Players[rows], col=c(1:4, 6), pch=15:18, horiz=F) 
+}
+
+myplot(Salary)   #taking default value rows=1:10
+myplot(MinutesPlayed/Games) #inputting a resulting matrix of arithmetics also works
+myplot(MinutesPlayed/Games, 3)
+
+```
+
 ### 4.11 Basketball insights
+
+```r
+myplot <- function(data, rows=1:10){
+    Data <- data[rows,drop=F] # a matrix
+    matplot(t(Data), type='b', pch=15:18, col=c(1:4, 6))
+    legend('bottomleft', inset=0.01, legend=Players[rows], col=c(1:4, 6), pch=15:18, horiz=F) 
+}
+
+myplot(Games)
+
+#analyse data from various perspectives, to see effects of, (e.g.)injury on salaries, FieldGoals, etc
+```
+
 
 ### 4.12 Recap of Section 4
 1. Project brief: basketball trends
