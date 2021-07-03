@@ -87,7 +87,69 @@ E  #again, numerics turned to characters automatically
 ```
 ### 4.5 Colnames() and Rownames()
 
+```r
+#named vectors
+Charlie <- 1:5
+Charlie
+
+#give names
+names(Charlie) #this returns NULL
+names(Charlie) <- c('a', 'b', 'c', 'd', 'e')
+Charlie #names with corresponding elements 1, ...5
+Charlie['d'] #d with 4
+names(Charlie) #now it is 'a', 'b', 'c', 'd', 'e'
+
+#clear names
+names(Charlie) <- NUL
+Chaelie #back to original vector without artificial name
+
+#naming matrix dimension 1
+temp.vec <- 
+  rep(c('a', 'B', 'zZ'), times=3)
+ 
+temp.vec <- 
+  rep(c('a', 'B', 'zZ'), each=3)
+temp.vec
+
+Bravo <- matrix(temp.vec, 3, 3)
+Bravo
+#currently Bravo is a non-named matrix
+
+rownames(Bravo) <- c('How', 'are', 'you?')
+Bravo
+
+colnames(Bravo) <- c('X', 'Y', 'Z')
+Bravo
+
+Bravo[2, 2]
+Bravo['are', 'Y'] 
+Bravo['are', 'Y'] <- 0
+
+rownames(Bravo)
+
+rownames(Bravo) <- NULL
+Bravo
+
+```
+
 ### 4.6 Matrix operations
+```r
+Games #from BasketballData.R
+rownames(Games)
+colnames(Games)
+Games['LeBronJames', '2012']
+
+FieldGoals
+
+round(FieldGoals / Games, 1)  #entry-by-entry arithmetics
+
+round(MinutesPlayed / Games)
+
+
+
+
+
+```
 
 ### 4.7 Visualising with Matplot()
 
