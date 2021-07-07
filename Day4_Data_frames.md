@@ -79,7 +79,7 @@ stats$Internet.users #returns a huge vector
 stats$Internet.users[2] #returns the 2nd row of column 'Internet.users', i.e.contents in one cell
 stats[, 'Internet.users'] #equivalent expression as stats$Internet.users
 
-levels(stats$Incom.Group) #returns four possible values in that column, 
+levels(stats$Income.Group) #returns four possible values in that column, 
 #  which might be omited due to insufficient space in str(stats)
 
 ```
@@ -87,11 +87,44 @@ levels(stats$Incom.Group) #returns four possible values in that column,
 ### 5.5 Basic operations with a data frame
 
 ```r
+stats[1:10,] #same as head(stats, n=10), heading 10 rows
+stats[3:9,]
+stats[c(4, 100),]
+#note the name(numbering) of rows are preserved as 4 and 100, not changed to 1, 2
 
+#Remenber how [] works
+is.data.frame(stats[1,]) #TRUE
+#recall picking one row from a matrix, it auto becomes a vector; data frame is preserved instead
+
+is.data.frame(stats[1,]) #FALSE
+is.data.frame(stats[,1,drop=F]) #TRUE, drop=F makes data frame preserved
+
+#multiply and add up columns (even not make sense for some contents)
+head(stats)
+stats$Birth.rate * stats$Internet.users
+stats$Birth.rate + stats$Internet.users
+
+#add a new column
+head(stats)
+stats$MyCalc <- stats$Birth.rate * stats$Internet.users   
+#name new col as if it exits; so it is created
+
+#test of knowledge
+stats$xyz <- 1:5 #1:4 not working below as 195, number of total rows is not multiple of 4
+head(stats, n=12) #can see a new column like 12345123...5(recycling)
+
+#remove a column
+head(stats)
+stats$MyCalc <- NULL
+stats$xyz <- NULL
 
 ```
 
 ### 5.6 Filtering a data frame
+
+```r
+
+```
 
 ### 5.7 Introduction to qplot
 
