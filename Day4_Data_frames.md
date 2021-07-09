@@ -123,12 +123,46 @@ stats$xyz <- NULL
 ### 5.6 Filtering a data frame
 
 ```r
+head(stats)
+filter <- stats$Internet.users < 2 #output a vector of TRUE's and FALSE's
+stats[filter,] #only outputs rows with TRUE in the vector, filter
+stats[stats$Birth.rate > 40,]
+stats[stats$Birth.rate > 40 & stats$Internet.users <2,]
+stats[stats$Income.Group == 'High income',]
+levels(stats$Income.Group)
+
+stats[stats$Country.Name == 'Malta',]
 
 ```
 
 ### 5.7 Introduction to qplot
 
+```r
+?qplot #nothing occurs before importing and activating package ggplot2
+install.package('ggplot2')
+library(qqplot2)
+?qplot #now see its guide
+
+qplot(data=stats, x=Internet.users) #can still type but not require stats$Internet.users since data=stats
+qplot(data=stats, x=Income.Group, y=Birth.rate)
+qplot(data=stats, x=Income.Group, y=Birth.rate, size=10)# will be same as size=10, with a legend, need below:
+qplot(data=stats, x=Income.Group, y=Birth.rate, size=I(10))
+
+qplot(data=stats, x=Income.Group, y=Birth.rate, size=I(3), colour=I('blue')) #similarly for colours, need I()
+
+qplot(data=stats, x=Income.Group, y=Birth.rate, geom='boxplot')
+
+```
+
 ### 5.8 Visualising with qplot: Part I
+
+```r
+qplot(data=stats, x=Internet.users, y=Birth.rate)
+qplot(data=stats, x=Internet.users, y=Birth.rate, size=I(4)) #we want size mapped to each point, so use I()
+qplot(data=stats, x=Internet.users, y=Birth.rate, colour=I('red'))
+qplot(data=stats, x=Internet.users, y=Birth.rate, colour=Income.group) #get each colour for each Income.Group with a legend
+#suitable to develop some insights from this graph: more internet, less birth
+```
 
 ### 5.9 Building dataframes
 
