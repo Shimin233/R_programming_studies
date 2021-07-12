@@ -198,20 +198,56 @@ head(mydf)
 #combine contents from mydf to stats
 #  noting the Country columns match in mydf and stats
 
-merged <- merge(stats, mydf, ny.x='Country.Code', by.y='Code')
+merged <- merge(stats, mydf, ny.x='Country.Code', by.y='Code') 
 head(merged)
+#equating x col from former data frame and y col from latter 
 #still have duplications in Country and Country.Name
 
 merged$Country<-NULL
 str(merged)
 tail(merged)
 
-
 ```
 
 ### 5.11 Visualising with qplot: Part II
 
+```r
+# library(ggplot2)
+qplot(data=merged, x=Internet.users, y=Birth.rate)
+qplot(data=merged, x=Internet.users, y=Birth.rate, 
+      colour=Region)
+
+#1 Shapes
+qplot(data=merged, x=Internet.users, y=Birth.rate, 
+      colour=Region, size=I(5), shape=I(17))
+      #search for a list of shapes and their numbers, 1-23
+      
+#2 Transparency
+qplot(data=merged, x=Internet.users, y=Birth.rate, 
+      colour=Region, size=I(5), shape=I(19), 
+      alpha=I(0.6)) #alpha from 0(transparent) to 1 (intransparent)
+      #so that can see overlapped shapes
+      
+#3 Title
+qplot(data=merged, x=Internet.users, y=Birth.rate, 
+      colour=Region, size=I(5), shape=I(19), 
+      alpha=I(0.6), 
+      main='Birth rate vs Internet users') 
+      
+
+```
+
 ### Recap of Section 5
+1. Importing data in to R
+2. Exploring datasets: `head(), tail(), summary(), str()`(structure)
+3. Using the `$` sign for columns with names
+4. Basic operations with data frames: setting col names, factors
+5. Filtering a data frame: logical opearation to get a logical vector, to be used as a filter
+6. Introduction to qplot
+7. Visualising with qplot Part I
+8. Building data frames: `data.frame()`, combing vectors to a data frame, re-naming columns
+9. Merging data frames: `merge()`
+10. Visualising with qplot Part II: shape, alpha, main
 
 ### Quiz: Data frames
 
