@@ -166,7 +166,48 @@ qplot(data=stats, x=Internet.users, y=Birth.rate, colour=Income.group) #get each
 
 ### 5.9 Building dataframes
 
+```r
+#points coloured/categorised by Countries' Regions
+
+#create a new data frame using existing vectors
+mydf <- data.frame(Counties_2012_Dataset, Codes_2012_Dataset, 
+                   Regions_2012_Dataset) 
+#put names of columns of data frame into this function data.frame()
+head(mydf)
+columns(mydf) <- c('Country', 'Code', 'Region') #rename columns of data frame
+
+rm(mydf)#re-start with the following, which is equvalent to above: 
+
+mydf <- data.frame(Country=Counties_2012_Dataset, Code=Codes_2012_Dataset, 
+                   Region=Regions_2012_Dataset)  #do not need quotaion marks
+                   #such convenient re-naming also works for cbind() and rbind()
+head(mydf)
+tail(mydf)
+summary(mydf)
+
+
+```
+
+
 ### 5.10 Merging Data frames
+
+```r
+head(stats)
+head(mydf)
+
+#combine contents from mydf to stats
+#  noting the Country columns match in mydf and stats
+
+merged <- merge(stats, mydf, ny.x='Country.Code', by.y='Code')
+head(merged)
+#still have duplications in Country and Country.Name
+
+merged$Country<-NULL
+str(merged)
+tail(merged)
+
+
+```
 
 ### 5.11 Visualising with qplot: Part II
 
