@@ -45,7 +45,7 @@ ncol(stats)
 #imported 195 rows; 
 # check number of rows/cols to keep track with what we are doing
 
-head(stats) #look at the heading five rows with column names
+head(stats) #look at the heading five rows (my R gives me 6 rows) with column names
 tail(stats) #look at the bottom six rows
 #tell 'head-tail' (like a fox) in R from 'top-(tail?)' in SQL
 
@@ -78,9 +78,12 @@ stats['Angola', 3] #giving NA; since Angola is just the content of one cell, not
 stats$Internet.users #returns a huge vector
 stats$Internet.users[2] #returns the 2nd row of column 'Internet.users', i.e.contents in one cell
 stats[, 'Internet.users'] #equivalent expression as stats$Internet.users
+#Note that $ does not need quotation to quote col name; [, ''] needs instead
+# $ can only quote col names but not col index
+#My R studio automatically at the end of output, gives (brief version of) levels of the quoted col
 
 levels(stats$Income.Group) #returns four possible values in that column, 
-#  which might be omited due to insufficient space in str(stats)
+#  which might be omited due to insufficient space in str(stats) (or at the end of output of stats$Income.Group)
 
 ```
 
@@ -90,13 +93,16 @@ levels(stats$Income.Group) #returns four possible values in that column,
 stats[1:10,] #same as head(stats, n=10), heading 10 rows
 stats[3:9,]
 stats[c(4, 100),]
-#note the name(numbering) of rows are preserved as 4 and 100, not changed to 1, 2
+stats[c(100, 2),] #
+#note the name(numbering) of rows are preserving original numbering of rows 
+#  in order of quotation, like 4 and 100, or 100 and 2; and not changed to 1, 2
 
 #Remenber how [] works
 is.data.frame(stats[1,]) #TRUE
 #recall picking one row from a matrix, it auto becomes a vector; data frame is preserved instead
 
-is.data.frame(stats[1,]) #FALSE
+is.data.frame(stats[,3:4]) #TRUE
+is.data.frame(stats[,1]) #FALSE; R automatically turns a single col to a vector
 is.data.frame(stats[,1,drop=F]) #TRUE, drop=F makes data frame preserved
 
 #multiply and add up columns (even not make sense for some contents)
@@ -107,7 +113,7 @@ stats$Birth.rate + stats$Internet.users
 #add a new column
 head(stats)
 stats$MyCalc <- stats$Birth.rate * stats$Internet.users   
-#name new col as if it exits; so it is created
+#name new col as if it exits; so that it is created
 
 #test of knowledge
 stats$xyz <- 1:5 #1:4 not working below as 195, number of total rows is not multiple of 4
@@ -170,11 +176,11 @@ qplot(data=stats, x=Internet.users, y=Birth.rate, colour=Income.group) #get each
 #points coloured/categorised by Countries' Regions
 
 #create a new data frame using existing vectors
-mydf <- data.frame(Counties_2012_Dataset, Codes_2012_Dataset, 
+mydf <- data.frame(Countries_2012_Dataset, Codes_2012_Dataset, 
                    Regions_2012_Dataset) 
 #put names of columns of data frame into this function data.frame()
 head(mydf)
-columns(mydf) <- c('Country', 'Code', 'Region') #rename columns of data frame
+colnames(mydf) <- c('Country', 'Code', 'Region') #rename columns of data frame
 
 rm(mydf)#re-start with the following, which is equvalent to above: 
 
@@ -234,7 +240,8 @@ qplot(data=merged, x=Internet.users, y=Birth.rate,
       alpha=I(0.6), 
       main='Birth rate vs Internet users') 
       
-
+#for columns determing x, y or colour, etc., can use col names from stats, 
+# or any other vector in current environment
 ```
 
 ### Recap of Section 5
@@ -248,6 +255,30 @@ qplot(data=merged, x=Internet.users, y=Birth.rate,
 8. Building data frames: `data.frame()`, combing vectors to a data frame, re-naming columns
 9. Merging data frames: `merge()`
 10. Visualising with qplot Part II: shape, alpha, main
+
+
+### Comparison of vectors, matrices and data frames
+
++++++++++++++++++++++++
+create: 
+c(elements)
+cbind(vectors), rbind, 
+data.frame(vectors)
+
+create/modify/delete a row/col:
+
+
+check information:
+summary() str() head() tail() nrow() ncol()
+
+quote (rows, columns): 
+
+filter: 
+
+merge: 
+
+
+### Homework: World Trends
 
 ### Quiz: Data frames
 
