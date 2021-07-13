@@ -25,11 +25,11 @@ getwd() #see what is the curretn WD
 #Windows
 setwd("C:\\Users\\Kirill\Desktop\\R programming") 
 #Mac
-setwd("/Users/kirilleremenko/Desktop/R programming")
+setwd("/Users/kirilleremenko/Desktop/R programming") #quotation marks!
 
 getwd() #indeed WD is changed
 rm(stats) #remove stats from environment
-stats <- read.csv("sec5-Demographic-Data.csv")
+stats <- read.csv("sec5-Demographic-Data.csv") #quotation marks!
 stats #again import this csv, but having directory determined beforehand, so only need filename
 
 ```
@@ -204,7 +204,7 @@ head(mydf)
 #combine contents from mydf to stats
 #  noting the Country columns match in mydf and stats
 
-merged <- merge(stats, mydf, ny.x='Country.Code', by.y='Code') 
+merged <- merge(stats, mydf, by.x='Country.Code', by.y='Code')  #quotation marks!
 head(merged)
 #equating x col from former data frame and y col from latter 
 #still have duplications in Country and Country.Name
