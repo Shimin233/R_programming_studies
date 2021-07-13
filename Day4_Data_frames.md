@@ -280,8 +280,11 @@ merge:
 
 ### Homework: World Trends
 My trial and corrections to it is saved as sec5_My_trials.R
+
 My results:
+
 ![sec5-LEvsFertility1960](sec5-LEvsFertility1960.png)
+
 ![sec5-LEvsFertility2013](sec5-LEvsFertility2013.png)
 
 ### Quiz: Data frames
