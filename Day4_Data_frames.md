@@ -307,19 +307,19 @@ Which of the following lines of code will accomplish this task?\
   `motodf<-df[df$Vehicle.Type=='Motorbike',]`
 need both `df[]` and `df$` to specify which to cut and which data frame the column belongs to
 
-4. You have three vectors:
-v1 <- c("House in Hollywood", "House in London", "House in Japan")
-v2 <- c(2000000, 5000000, 29580000)
-v3 <- c("US Dollars", "Pounds", "Yen")
+4. You have three vectors:\
+v1 <- c("House in Hollywood", "House in London", "House in Japan")\
+v2 <- c(2000000, 5000000, 29580000)\
+v3 <- c("US Dollars", "Pounds", "Yen")\
 How would you put them into a data frame with named columns?\
 `Real.EState<-data.frame(House=v1, Price=v2, Currency=v3)`
 does not need quotations
 
-5. Your data frame is called shopping.list and it has the following three columns:
-item.name - a character column, e.g.: "Milk"
-category - a character column, e.g.: "For Breakfast"
-price - a numeric column, e.g.: 5.20
-monthly.budget - a numeric column, e.g.: 10.40
+5. Your data frame is called shopping.list and it has the following three columns:\
+item.name - a character column, e.g.: "Milk"\
+category - a character column, e.g.: "For Breakfast"\
+price - a numeric column, e.g.: 5.20\
+monthly.budget - a numeric column, e.g.: 10.40\
 Which of the following qplot calls will produce a scatterplot?\
 `qplot(data=shopping.list, x=price, y=monthly.budget)`
 specify both x and y axis
