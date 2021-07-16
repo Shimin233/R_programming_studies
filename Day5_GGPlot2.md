@@ -400,6 +400,18 @@ h + xlab('Money Axis') +
 
 ```
 ### Recap of Section 6
+1. Grammar of Graphics & GGPlot2: 7 layers, data, aesthetics, geometries, statistcs, facets, coordinates, theme
+2. Factors in R: convert into factors `factor()`
+3. Aesthetics & `ggplot()`
+4. Plotting with layers: (bottom <-)first layer + second layer +... (-> top)
+5. Overriding Aesthetics: override in later layers, like in `geom_point()`
+6. Mapping vs Setting: `aes(colour=Genre)` versus `colour='Black'`
+7. Histograms and Density charts: `geom_histogram()` using only one axis, with `fill`; `geom_density()`
+8. Starting layer tips: order layers as you need
+9. Statistical transformation: `boxplot()` with scatter points
+10. Using facets
+11. Coordinates: `xlim`, `ylim`
+12. Themes
 
 ### Homework: Movie Domestic % Gross
 
