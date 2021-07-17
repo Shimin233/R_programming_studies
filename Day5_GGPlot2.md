@@ -416,3 +416,23 @@ h + xlab('Money Axis') +
 ### Homework: Movie Domestic % Gross
 
 ### Quiz
+1. Which of the following is NOT one of the seven layers we talked about in Grammar of Graphics?\
+  Colours is not.\
+  
+2. What is wrong in the following code?\
+`r <- ggplot(data=movies,  aes(x=CriticRating, y=AudienceRating, colour="Purple"))`\
+The colour aesthetic is obviously being set(!) to the colour 'Purple' not mapped to it. 
+Therefore, the setting should occur outside of the `aes()` function.\
+
+3. How do you control which layers come closer to the top of your plot and which - closer to the bottom in GGPlot2?\
+You control this by rearranging the order in which you add the layers to your plot in your code.\
+
+4. How many variables (columns of a data frame) are required to create a histogram?\
+1 (only x=Col)
+
+5. Your dataset has 3 different values in the "Country" column
+ and 10 different values in the "Occupation" column. 
+P is a plot that uses this dataset and does not yet have a facets layer. 
+What kind of facet grid will be created by the following code?\
+`P + facet_grid(Country~Occupation)`\
+A grid of 3 rows x 10 columns
