@@ -36,7 +36,7 @@
 setwd()
 getwd()
  
-movies <- read.csv('Movie Ratings.csv')
+movies <- read.csv('sec6-Movie-Ratings.csv')
 head(movies)
 colnames(movies) <- C('Film', 'Genre', 'CriticRating', 'AudienceRating', 'BudgetMillions', 'Year')
 
